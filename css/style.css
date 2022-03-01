@@ -1,5 +1,9 @@
 #phone-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-   margin-top: 5px;
+   
 }
+/* #image{
+    width: 100px;
+  height: 100px;
+} */
