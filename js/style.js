@@ -1,6 +1,16 @@
 const searchPhone = () => {
+    document.getElementById('phone-container').innerHTML = '';
+    document.getElementById('spinner').style.display = "block";
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
+    if (searchField.value == '') {
+        document.getElementById('result').style.display = "block";
+    }
+    else {
+        document.getElementById('result').style.display = "none";
+    }
+
+    searchField.value = '';
     const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}
     `;
     fetch(url)
@@ -8,11 +18,24 @@ const searchPhone = () => {
         .then(data => displayPhone(data.data))
 }
 const displayPhone = phones => {
+    if (status == false) {
+        document.getElementById('result').style.display = "block";
+    }
+    else {
+        document.getElementById('result').style.display = 'none';
+    }
+    if (phones) {
+        document.getElementById('spinner').style.display = "none";
+    }
+    else {
+        document.getElementById('spinner').style.display = "block";
+    }
     const PhoneContainer = document.getElementById('phone-container');
     console.log(PhoneContainer);
     console.log(phones)
     for (const phone of phones) {
         console.log(phone);
+
         const div = document.createElement('div');
         div.innerHTML = `
                <div class="col p-4 rounded shadow-lg">
@@ -33,6 +56,8 @@ const displayPhone = phones => {
 }
 
 const searchDetails = id => {
+    document.getElementById('phone-container').innerHTML = '';
+    document.getElementById('detail-container').innerHTML = '';
     console.log(id)
     const url = `
     https://openapi.programming-hero.com/api/phone/${id}
@@ -58,6 +83,10 @@ const displayDetail = id => {
 
 }
 const mainFeatures = id => {
+    document.getElementById('detail-container').innerHTML = "";
+    document.getElementById('feature-container').innerHTML = "";
+    document.getElementById('phone-container').innerHTML = "";
+
     console.log(id)
     const url = `
     https://openapi.programming-hero.com/api/phone/${id}
@@ -68,17 +97,19 @@ const mainFeatures = id => {
 }
 const displayFeatures = feature => {
     const featureContainer = document.getElementById('feature-container');
-    console.log(feature.mainFeatures);
+    console.log(feature.image);
     const div = document.createElement('div');
     div.innerHTML = `
     <div class="card-header">
-                <h3>Main Features of ${feature.name}</h3>
+                <h3 class="text-success">Main Features of ${feature.name}</h3>
+                <div class="w-25 mx-auto"><img id="image" src="${feature.image}" class="card-img-top" alt="..."></div>
             </div>
-            <div class="card-body">
-                <h3>Storage :${feature.mainFeatures.storage}</h3>
-                <h3>Display Size :${feature.mainFeatures.displaySize}</h3>
-                <h3>Chipset :${feature.mainFeatures.chipSet}</h3>
-                <h3>Memory : ${feature.mainFeatures.memory}</h3>
+            <div class="card-body ">
+                <h3><span class="text-success">Storage :</span>${feature.mainFeatures.storage}</h3>
+                <h3><span class="text-success">Display Size :</span>${feature.mainFeatures.displaySize}</h3>
+                <h3><span class="text-success">Chipset :</span>${feature.mainFeatures.chipSet}</h3>
+                <h3><span class="text-success">Memory :</span> ${feature.mainFeatures.memory}</h3>
+                
             </div>
     `;
     featureContainer.appendChild(div);

@@ -3,7 +3,22 @@
     grid-template-columns: repeat(3, 1fr);
    
 }
-/* #image{
-    width: 100px;
-  height: 100px;
-} */
+#spinner{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    overflow: show;
+    margin: auto;
+    
+    top: 0;
+    left: 0;
+    bottom: 2px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+}
+#result{
+    display: none;
+}
+    
+

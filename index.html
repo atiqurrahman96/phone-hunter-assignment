@@ -16,14 +16,15 @@
 <body>
     <!-- title added  -->
     <div class="container text-center py-5">
-        <h1>Persue Your Favourite Phone</h1>
+        <h1 class="text-success">Persue Your Favourite Phone</h1>
     </div>
     <!-- search box added  -->
     <div class="w-50 mx-auto ">
         <div class="input-group mb-3">
             <input id="search-field" type="text" class="form-control" placeholder="Persue your phone"
                 aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button">Search</button>
+            <button onclick="searchPhone()" class="btn btn-outline-secondary fw-bold" type="button">Search</button>
+
         </div>
     </div>
     <!-- main features  -->
@@ -32,11 +33,14 @@
         </div>
     </section>
     <!-- phone detail  -->
+
     <section id="detail-container" class="container">
         <div class="card mx-auto mb-3" style="width: 18rem;">
-
         </div>
+        <div id="spinner" class="spinner-border text-primary spinner-border-lg"></div>
+        <h2 id="result" class="text-danger text-center">No Result Found</h2>
     </section>
+
     <!-- card added  -->
     <section id="phone-container" class="container">
         <div class="row row-cols-1 row-cols-lg-4 g-4">
