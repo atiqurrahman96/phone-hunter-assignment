@@ -3,11 +3,11 @@ const searchPhone = () => {
     document.getElementById('spinner').style.display = "block";
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
-    if (searchField.value == '') {
-        document.getElementById('result').style.display = "block";
+    if (searchField.value == "") {
+        document.getElementById('result').style.display = 'block';
     }
     else {
-        document.getElementById('result').style.display = "none";
+        document.getElementById('result').style.display = 'none';
     }
 
     searchField.value = '';
@@ -18,12 +18,7 @@ const searchPhone = () => {
         .then(data => displayPhone(data.data))
 }
 const displayPhone = phones => {
-    if (status == false) {
-        document.getElementById('result').style.display = "block";
-    }
-    else {
-        document.getElementById('result').style.display = 'none';
-    }
+    console.log(phones);
     if (phones) {
         document.getElementById('spinner').style.display = "none";
     }
