@@ -15,7 +15,7 @@ const searchPhone = () => {
     `;
     fetch(url)
         .then(response => response.json())
-        .then(data => displayPhone(data.data))
+        .then(data => displayPhone(data.data.slice(0, 20)))
 }
 const displayPhone = phones => {
     console.log(phones);
